@@ -251,8 +251,8 @@ If you use this corpus, please cite:
 Registered Nurse | Healthcare Data Analyst  
 HIPAA-certified | 1+ year clinical experience  
 
-- **Email: *anita.o.aigbo@gmail.com*   
-- **LinkedIn: *www.linkedin.com/in/anita-aigbomodion*  
+- **Email:** *anita.o.aigbo@gmail.com*   
+- **LinkedIn:** *www.linkedin.com/in/anita-aigbomodion*  
 ---
 
 ## License
@@ -269,6 +269,7 @@ MIT License
 
 **Last Updated:** December 2025  
 **Version:** 1.0
+
 
 
 
