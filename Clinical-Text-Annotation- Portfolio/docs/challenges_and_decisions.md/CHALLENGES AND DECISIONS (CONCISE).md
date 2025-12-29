@@ -1,226 +1,84 @@
-###  **CHALLENGES AND DECISIONS (CONCISE)**
+# Annotation Challenges & Key Decisions
 
+## 1. Major Conceptual Challenges
 
+**Clinical Course vs Disease Status**  
+- **Issue:** Overlapping terms (e.g., resolved, acute) caused confusion  
+- **Resolution:**  
+  - **Clinical Course** → trajectory over time (improving, worsening, resolved)  
+  - **Disease Status** → disease phase/nature (acute, chronic, active, resolved)  
+  - *Note:* "Resolved" may appear in both contexts
 
-##### **Annotation Challenges and Key Decisions**
+**Temporal Entity vs Modifier**  
+- **Issue:** Temporal expressions were both entity and modifier  
+- **Resolution:**  
+  - **TEMPORAL entity** → time expressions to highlight ("90 minutes ago," "3 days")  
+  - Removed temporal modifier completely  
+  - Moved temporal descriptors (acute, chronic) to Disease Status
 
-##### 
+**Negation Logic (Present vs Absent)**  
+- **Issue:** Initially reversed  
+- **Resolution:**  
+  - **Present** = entity exists  
+  - **Absent** = entity does not exist  
+  - Highlight the entity, not the negation word
 
-###### **1.MAJOR CONCEPTUAL CHALLENGES**
+---
 
+## 2. Schema Design Decisions
 
+- **Removed DISEASE entity type:** Redundant with DIAGNOSIS  
+- **Rate vs Frequency:** Separated to maintain clinical accuracy (continuous therapies vs repeated doses)  
+- **Added PROCEDURE_RESULT:** For post-procedure outcomes (e.g., "Well-seated valve")  
+- **EXPOSURE vs DIAGNOSIS:**  
+  - **DIAGNOSIS** → past medical conditions ("history of hypertension")  
+  - **EXPOSURE** → behavioral/environmental factors ("smoking," "sick sibling")
 
-Challenge: Clinical Course vs. Disease Status Confusion
+---
 
-Issue: Both can use similar words (resolved, acute)
+## 3. Relation Annotation Dilemmas
 
-Resolution:
+- **Medical knowledge vs explicit text:**  
+  - Example: Urinalysis positive → UTI. *Decision:* Don’t annotate; text doesn’t state diagnosis  
+- **Discharge medications → conditions:**  
+  - Example: "Amlodipine for hypertension" → Annotate only if indication explicitly stated  
+- **Discharge diagnosis linking organisms to infection:**  
+  - Example: "Blood cultures grew E. coli" + "E. coli urosepsis" → Annotate  
+- **Temporal causation:**  
+  - Example: "Post-TAVR complete heart block" → Annotate; temporal causation acceptable
 
-Clinical Course = trajectory over time (improving, worsening, resolved)
+---
 
-Disease Status = disease phase/nature (acute, chronic, active, resolved)
+## 4. Modifier Issues
 
-"Resolved" can be both depending on context
+- **Pain Quality ≠ Severity:** Quality descriptors (crushing, sharp) included in entity span, not severity  
+- **Severity ranges:** "Mild-to-moderate" → choose higher value (Moderate) for consistency
 
+---
 
+## 5. Key Edge Cases
 
-Challenge: Temporal Entity vs. Modifier Confusion
+| Text | Annotation Decision |
+|------|------------------|
+| "No relief with nitroglycerin" | `[Nitroglycerin]` MEDICATION, Present; `[Relief]` Optional, Absent |
+| "Wheezing decreased minimally" | Clinical Course: Improving |
+| "Likely RSV given sick contacts" | Annotate entities only; skip relation (no explicit causation) |
 
-Issue: Created "Temporal" as both entity AND modifier
+---
 
-Resolution:
+## 6. Lessons Learned
 
-TEMPORAL entity = time expressions to highlight ("90 minutes ago," "3 days")
+- Start conservative → easier to add annotations later  
+- Use modifier defaults → saves time  
+- Trust note structure for context  
+- Discharge instructions require special rules (skip warning signs)  
+- Document decisions immediately → ensures consistency for future cases
 
-Removed temporal modifier completely
+---
 
-Moved temporal descriptors (acute, chronic) to Disease Status modifier
+## 7. Impact
 
-
-
-Challenge: Negation Logic (Present vs. Absent)
-
-Issue: Initially backwards (Negation Present = entity absent)
-
-Resolution:
-
-Present = entity EXISTS
-
-Absent = entity DOESN'T exist
-
-Highlight entity being negated, not negation word
-
-
-
-
-
-###### **2. SCHEMA DESIGN DECISIONS**
-
-Decision: Remove DISEASE Entity Type
-
-Issue: DISEASE vs. DIAGNOSIS redundancy
-
-Resolution: Use only DIAGNOSIS for all diseases/conditions (current and historical)
-
-Rationale: Eliminates ambiguity, context indicates timing
-
-
-
-Decision: Rate vs Frequency use
-
-Issue: Substituting frequency for rate would misrepresent continuous therapies, since they are not repeated at intervals but delivered without interruption.
-
-Resolution: Clearly separate rate and frequency in the annotation schema
-
-Rationale: Maintaining this distinction preserves clinical accuracy
-
-
-
-Decision: Add PROCEDURE\_RESULT Entity Type
-
-Issue: Post-procedure outcomes didn't fit existing types
-
-Examples: "Well-seated valve," "TIMI 3 flow restored"
-
-Resolution: Added PROCEDURE\_RESULT for procedural outcomes
-
-
-
-Decision: EXPOSURE vs. DIAGNOSIS for Risk Factors
-
-Issue: Past medical conditions could be either
-
-Resolution:
-
-DIAGNOSIS: Past medical conditions ("history of hypertension")
-
-EXPOSURE: Behavioral/environmental factors ("smoking," "sick sibling," "daycare")
-
-
-
-###### **3. RELATION ANNOTATION DILEMMAS**
-
-Dilemma: Medical Knowledge vs. Explicit Text
-
-Case: Urinalysis → UTI
-
-Text: "Urinalysis positive for nitrites, leukocyte esterase"
-
-Dilemma: Medically diagnostic of UTI, but text doesn't state it
-
-Decision: DON'T annotate relation without explicit diagnostic statement
-
-Rationale: Maintains objectivity, reproducibility
-
-
-
-Case: Discharge Medications → Conditions
-
-Text: Patient has hypertension, discharge med is amlodipine
-
-Dilemma: Medically we know amlodipine treats hypertension
-
-Decision: DON'T annotate unless explicitly stated
-
-Rationale: Medication indication not always obvious, requires drug knowledge
-
-Exception: If text says "amlodipine for hypertension," then annotate
-
-
-
-Case: E. coli → Urosepsis
-
-Text: "Blood cultures grew E. coli" + Discharge dx: "E. coli urosepsis"
-
-Decision: ANNOTATE - discharge diagnosis provides textual link
-
-Rationale: Text explicitly names "E. coli urosepsis" connecting organism to infection
-
-Dilemma: Temporal Causation
-
-
-
-Case: "Post-TAVR complete heart block"
-
-Dilemma: Doesn't say "caused by," just temporal association
-
-Decision: ANNOTATE - temporal causation acceptable
-
-Rationale: "Post-procedure developed" is standard medical language for complications
-
-
-
-
-
-###### **4. MODIFIER ISSUES**
-
-Issue: Pain Quality ≠ Severity
-
-Problem: "Crushing pain" assumed severe
-
-Resolution: Quality descriptors (crushing, sharp, dull) are NOT severity
-
-Decision: Include in entity span, don't assign severity unless explicitly stated
-
-
-
-Issue: Severity Ranges
-
-Problem: "Mild-to-moderate" - which to choose?
-
-Decision: Select higher value (Moderate)
-
-Rationale: Conservative clinical approach, consistency
-
-
-
-###### **5. KEY EDGE CASES**
-
-"No relief with nitroglycerin"
-
-Resolution:
-
-Nitroglycerin: Negation Present (med was given)
-
-Relief: Negation Absent (didn't occur)
-
-
-
-"Wheezing decreased minimally"
-
-Resolution: Clinical Course: Improving (any decrease = improvement)
-
-"Likely RSV given sick contacts"
-
-Resolution: Annotate entities, skip relation (no explicit causation stated)
-
-
-
-###### **6. LESSONS LEARNED**
-
-Start conservative - easier to add annotations later than remove bad ones
-
-Modifier defaults save time - configure tool with smart defaults
-
-Section context matters - trust note structure for context
-
-Discharge instructions are different - need special rules (skip warning signs)
-
-Document decisions immediately - creates precedents for future cases
-
-
-
-**7. IMPACT**
-
-Before strict guidelines:
-
-Time per note: 2-3 hours
-
-Consistency: ~60-70%
-
-After implementing decisions:
-
-Time per note: 1-1.5 hours
-
-Consistency: ~90%+
-
+| Metric | Before Guidelines | After Guidelines |
+|--------|-----------------|----------------|
+| Time per note | 2–3 hours | 1–1.5 hours |
+| Annotation consistency | ~60–70% | ~90%+ |
