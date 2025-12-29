@@ -1,166 +1,100 @@
-### **Future Work and Extensions**
+# Future Work and Extensions
 
+## 1. Corpus Expansion
 
+**More Notes**  
+- Target: 20-30 notes across 10+ specialties  
+- Add oncology, psychiatry, surgery, neurology notes  
+- Include different note types: ED notes, radiology reports, progress notes  
 
+**More Annotations**  
+- Multi-annotator validation → calculate inter-annotator agreement  
+- Co-reference resolution → link repeated entity mentions  
+- Temporal relations → connect events to timepoints  
 
+---
 
-###### **1. CORPUS EXPANSION**
+## 2. Schema Enhancements
 
-More Notes
+**Potential Additions**  
+- **Entity types:** MEASUREMENT_UNIT, CLINICAL_DEPT, SOCIAL_DETERMINANT  
+- **Relations:** PREVENTS, ADMINISTERED_VIA, OCCURRED_AT  
+- **Modifiers:** Diagnostic Certainty (if needed)  
 
-Target: 20-30 notes across 10+ specialties
+---
 
-Add: Oncology, psychiatry, surgery, neurology notes
+## 3. Model Development
 
-Add: Different note types (ED notes, radiology reports, progress notes)
+**NER Models**  
+- Train CRF, BiLSTM-CRF, BERT-based models (ClinicalBERT, BioBERT)  
+- Evaluate per-entity F1 scores  
+- Test few-shot learning  
 
-More Annotations
+**Relation Extraction**  
+- Pipeline approach: NER → relation classification  
+- Joint models: end-to-end  
+- Evaluate relation F1 by type  
 
-Multi-annotator validation: Calculate inter-annotator agreement
+**Modifier Prediction**  
+- Auto-predict severity, negation, disease status  
+- Speed up annotation  
 
-Co-reference resolution: Link repeated entity mentions
+---
 
-Temporal relations: Connect events to timepoints
+## 4. Evaluation
 
+- Clinical expert review → validate medical accuracy  
+- Inter-annotator agreement → quantify reliability  
+- Compare with existing corpora → i2b2, n2c2, MIMIC-III  
 
+---
 
-###### 
+## 5. Applications
 
-###### **2. SCHEMA ENHANCEMENTS**
+**Clinical Decision Support**  
+- Medication safety alerts  
+- Diagnosis suggestions  
+- Treatment recommendations  
 
-Potential Additions
+**Quality Measurement**  
+- Care gap identification  
+- Guideline adherence checking  
 
-Entity types: MEASUREMENT\_UNIT, CLINICAL\_DEPT, SOCIAL\_DETERMINANT
+**Research**  
+- Phenotype extraction for cohort studies  
+- Adverse event detection  
+- Treatment effectiveness analysis  
 
-Relations: PREVENTS, ADMINISTERED\_VIA, OCCURRED\_AT
+**Medical Coding**  
+- ICD-10 code suggestion  
+- CPT code suggestion  
 
-Modifiers: Diagnostic Certainty (if needed)
+---
 
+## 6. Tools
 
+- Active learning interface → model suggests, annotator corrects  
+- Consistency checker → flag inconsistencies across notes  
+- Knowledge graph visualizer → show entities and relations  
+- Timeline visualizer → display clinical events over time  
+- Structured query interface → search annotated corpus  
 
-###### 
+---
 
-###### **3. MODEL DEVELOPMENT**
+## 7. Research Directions
 
-NER Models
+- Uncertainty modeling → handle "likely," "possible," "suspected"  
+- Temporal reasoning → extract event sequences, predict next events  
+- Advanced negation → different negation types, speculation, hedging  
+- Multi-modal integration → combine text with structured data  
+- Explainability → interpretable relation extraction  
 
-Train CRF, BiLSTM-CRF, BERT-based models (ClinicalBERT, BioBERT)
+---
 
-Evaluate per-entity F1 scores
+## 8. Immediate Next Steps
 
-Test few-shot learning
-
-Relation Extraction
-
-Pipeline approach (NER then relation classification)
-
-Joint models (end-to-end)
-
-Evaluate relation F1 by type
-
-Modifier Prediction
-
-Auto-predict severity, negation, disease status
-
-Use to speed up annotation
-
-
-
-###### 
-
-###### **4. EVALUATION**
-
-Clinical expert review: Validate medical accuracy
-
-Inter-annotator agreement: Quantify reliability
-
-Compare with existing corpora: i2b2, n2c2, MIMIC-III
-
-
-
-###### 
-
-###### **5. APPLICATIONS**
-
-Clinical Decision Support
-
-Medication safety alerts
-
-Diagnosis suggestions
-
-Treatment recommendations
-
-Quality Measurement
-
-Care gap identification
-
-Guideline adherence checking
-
-Research
-
-Phenotype extraction for cohort studies
-
-Adverse event detection
-
-Treatment effectiveness analysis
-
-Medical Coding
-
-ICD-10 code suggestion
-
-CPT code suggestion
-
-
-
-
-
-
-
-###### **6. TOOLS**
-
-Active learning interface: Model suggests, annotator corrects
-
-Consistency checker: Flag inconsistencies across notes
-
-Knowledge graph visualizer: Show entities and relations
-
-Timeline visualizer: Display clinical events over time
-
-Structured query interface: Search annotated corpus
-
-
-
-
-
-###### **7. RESEARCH DIRECTIONS**
-
-Uncertainty modeling: Handle "likely," "possible," "suspected"
-
-Temporal reasoning: Extract event sequences, predict next events
-
-Advanced negation: Different negation types, speculation, hedging
-
-Multi-modal integration: Combine text with structured data
-
-Explainability: Interpretable relation extraction
-
-
-
-
-
-###### **8. IMMEDIATE NEXT STEPS**
-
-Complete quality review of 6 annotated notes
-
-Calculate annotation statistics (entity counts, relation counts per type)
-
-Have clinical expert review sample annotations
-
-Train baseline NER model on these 6 notes
-
-Identify 10-15 additional notes for expansion
-
-
-
-
-
+- Complete quality review of 6 annotated notes  
+- Calculate annotation statistics (entity counts, relation counts per type)  
+- Have clinical expert review sample annotations  
+- Train baseline NER model on these 6 notes  
+- Identify 10-15 additional notes for expansion
