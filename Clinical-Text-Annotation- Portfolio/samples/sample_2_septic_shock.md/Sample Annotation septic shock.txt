@@ -1,0 +1,16 @@
+ Sample Annotation: Septic shock
+
+ Original Text
+"DISCHARGE DIAGNOSIS: Septic shock secondary to E. coli urosepsis, resolved. Acute encephalopathy, resolved. Acute kidney injury on chronic kidney disease, improving."
+
+ Entities Annotated
+- DIAGNOSIS:Septic shock secondary to E. coli urosepsis
+- DIAGNOSIS: Acute encephalopathy
+- DIAGNOSIS: Acute kidney injury on chronic kidney disease
+
+
+ Modifiers
+-Clinical_course: Resolved, Improving.
+
+ Rationale
+-Entities and relations were annotated conservatively based on explicit clinical language.

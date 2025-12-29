@@ -1,0 +1,35 @@
+{
+  "entity_types": [
+"PATIENT_DEMOGRAPHICS" 
+"DIAGNOSIS"
+"SYMPTOM"
+"SIGN" 
+"VITAL_SIGN"
+"DIAGNOSTIC_TEST"
+"TEST_RESULT"
+"LAB_VALUE"
+"MEDICATION"
+"DOSAGE
+"ROUTE"
+"RATE" 
+"FREQUENCY"
+"PROCEDURE"
+"PROCEDURE_RESULT"
+"ANATOMY"
+"EXPOSURE"
+"TEMPORAL" 
+  ],
+
+  "relation_types": [
+    "DIAGNOSIS",
+    "TREATS",
+    "CAUSES",
+    "INDICATION"
+  ],
+  "modifiers": {
+    "severity": ["Not Applicable", "Mild", "Moderate", "Severe", "Critical"],
+    "clinical_course": ["Not Applicable", "Improving", "Worsening", "Stable", "Progressive", "Resolved", "Persistent"],
+    "disease_status": ["Not Applicable", "Acute", "Chronic", "Active", "Inactive", "Resolved",  "Recurrent", "Remote"],
+    "negation": ["Present", "Absent"]
+  }
+}

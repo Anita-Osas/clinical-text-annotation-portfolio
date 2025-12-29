@@ -1,0 +1,27 @@
+  Annotation Count Methodology
+
+ Named Entity Recognition (NER)
+Each annotated span in the Label Studio JSON export was counted as one entity.
+
+- Negation was captured as a modifier associated with entities
+- Repeated mentions were counted separately
+- Entity counts were obtained by reviewing the JSON export from Label Studio
+
+
+ Relation Annotations (RA)
+Each explicit relation arrow between two entities was counted as one relation.
+
+- Only relations supported by explicit text were annotated
+- No relations were inferred based on clinical knowledge alone
+
+
+ Notes
+The dataset contains six annotated clinical notes within a single Label Studio project export.
+
+The dataset consists of manually annotated clinical notes exported from Label Studio in JSON format.
+
+The dataset contains six annotated clinical notes with an average of 92 entities and 9 relations per note.
+
+Entities represent individual textual mentions of clinical concepts and include repeated mentions when concepts appear multiple times.
+
+Clinical modifiers such as negation, severity, disease status, and clinical course were annotated separately as attributes and were not counted as entities.

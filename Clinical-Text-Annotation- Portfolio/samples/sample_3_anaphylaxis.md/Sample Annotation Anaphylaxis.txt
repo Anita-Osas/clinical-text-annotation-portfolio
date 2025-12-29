@@ -1,0 +1,18 @@
+ Sample Annotation: Anaphylaxis secondary to peanut exposure
+
+ Original Text
+"28-year-old female with known peanut allergy presents with acute onset shortness of breath, facial swelling, and full-body hives starting 10 minutes after eating at restaurant."
+
+ Entities Annotated
+- PATIENT DEMOGRAPHY: 28-year-old female
+- SYMPTOM: acute onset shortness of breath.
+- SIGNS: "facial swelling", "full-body hives".
+- TEMPORAL: 10 minutes after
+- EXPOSURE: eating at restaurant
+- DIAGNOSIS: peanut allergy
+
+ Relations
+- DIAGNOSIS: peanut exposure → Anaphylaxis
+
+ Rationale
+-Entities and relations were annotated conservatively based on explicit clinical language.

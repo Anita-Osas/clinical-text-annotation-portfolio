@@ -1,0 +1,92 @@
+<View>
+  <Text name="text" value="$text"/>
+
+  <Labels name="entity" toName="text">
+    <Label value="PATIENT_DEMOGRAPHICS" background="#FFE6E6"/>
+    <Label value="DIAGNOSIS" background="#FF6B6B"/>
+    <Label value="SYMPTOM" background="#4ECDC4"/>
+    <Label value="SIGN" background="#45B7D1"/>
+    <Label value="VITAL_SIGN" background="#96CEB4"/>
+    <Label value="DIAGNOSTIC_TEST" background="#FFEAA7"/>
+    <Label value="TEST_RESULT" background="#FDCB6E"/>
+    <Label value="LAB_VALUE" background="#F39C12"/>
+    <Label value="MEDICATION" background="#DDA0DD"/>
+    <Label value="DOSAGE" background="#DA70D6"/>
+    <Label value="ROUTE" background="#BA55D3"/>
+    <Label value="RATE" background="#26408B"/>
+    <Label value="FREQUENCY" background="#9370DB"/>
+    <Label value="PROCEDURE" background="#FF85C0"/>
+    <Label value="PROCEDURE_RESULT" background="#FF6D00"/>
+    <Label value="ANATOMY" background="#B0B0B0"/>
+    <Label value="EXPOSURE" background="#FF9F7F"/>
+    <Label value="TEMPORAL" background="#B8F200"/>
+    
+  </Labels>
+
+  
+    <!-- Severity Modifier -->
+  <Choices name="severity" toName="text" perRegion="true">
+    <Header value="Severity"/>
+    <Choice value="Not Applicable" selected="true"/>
+    <Choice value="Mild"/>
+    <Choice value="Moderate"/>
+    <Choice value="Severe"/>
+    <Choice value="Critical"/>
+  </Choices>
+  
+
+   <!-- Clinical Course Modifier -->
+  <Choices name="clinical_course" toName="text" perRegion="true">
+    <Header value="Clinical Course"/>
+    <Choice value="Not Applicable" selected="true"/>
+    <Choice value="Improving"/>
+    <Choice value="Worsening"/>
+    <Choice value="Stable"/>
+    <Choice value="Progressive"/>
+    <Choice value="Resolved"/>
+    <Choice value="Persistent"/>
+  </Choices>
+
+  
+   <Choices name="Disease_status" toName="text" perRegion="true">
+     <Header value="Disease Status"/>
+    <Choice value="Not Applicable" selected="true"/>
+    <Choice value="Acute"/>
+    <Choice value="Chronic"/>
+    <Choice value="Active"/>
+    <Choice value="Inactive"/>
+    <Choice value="Resolved"/>
+    <Choice value="Recurrent"/>
+    <Choice value="Remote"/>
+  </Choices>
+  
+  
+    <!-- Negation Modifier (Shows for all entities) -->
+  <Choices name="negation" toName="text" perRegion="true">
+     <Header value="Negation"/>
+    <Choice value="Present" selected="true"/>
+    <Choice value="Absent"/>
+  </Choices>
+  
+  
+  <!-- RELATION ANNOTATION --> 
+  <Relations name="relation" toName="text"> 
+    <Relation value="DIAGNOSIS" background="#FF6B6B"/> 
+    <Relation value="TREATS" background="#4ECDC4"/> 
+    <Relation value="CAUSES" background="#FFA500"/> 
+    <Relation value="INDICATION" background="#9370DB"/> 
+  </Relations>
+  
+  <!-- CLINICAL SUMMARY -->
+  style="margin-top: 20px;">
+  <Header value="Clinical Summary"/>
+  <TextArea
+    name="clinical_summary"
+    toName="text"
+    rows="6"
+    placeholder="Write a concise clinical summary (diagnosis, key findings, treatment, outcome)..."
+  />
+  
+  
+  
+</View>

@@ -1,0 +1,15 @@
+ Sample Annotation: Acute ST-elevation myocardial infarction (STEMI), anterior wall.
+
+ Original Text
+" 62-year-old male with hypertension, diabetes, and 40 pack-year smoking history presents with acute crushing substernal chest pain radiating to left arm,..."
+
+ Entities Annotated
+- PATIENT DEMOGRAPHY: 62-year-old male
+- DIAGNOSIS: hypertension, diabetes
+- EXPOSURE: 40 pack-year smoking history
+- SYMPTOM: acute crushing substernal chest pain
+- ANATOMY: left arm
+
+
+ Rationale
+-Entities were annotated conservatively based on explicit clinical language.
