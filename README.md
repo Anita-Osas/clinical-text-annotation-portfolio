@@ -145,27 +145,35 @@ Representative annotated examples are included in the repository:
 
 clinical-text-annotation-portfolio/
 │
-├── README.md  
+├── README.md
 │
-├── samples/  
-│   ├──sample_1_stemi.md 
-│   ├── sample_2_septic_shock.md
-│   └── sample_3_anaphylaxis.md
+├── samples/
+│ ├── sample_1_stemi.md
+│ ├── sample_2_septic_shock.md
+│ └── sample_3_anaphylaxis.md
 │
 ├── documents/
-│   ├── README.md 
-│   ├── annotation-guidelines.md
-│   ├── challenges-and-decisions.md
-│   └── future-work.md
+│ ├── README.md
+│ ├── annotation-guidelines.md
+│ ├── challenges-and-decisions.md
+│ └── future-work.md
 │
 ├── analysis/
-│   ├── entity-relation-count.md
-│   └── annotation-statistics.xlsx
+│ ├── entity-relation-count.md
+│ └── annotation-statistics.xlsx
 │
 └── schema/
-    ├── label-studio-config.xml
-    ├── annotation-schema.json
-    └── project-export.json 
+├── label-studio-config.xml
+├── annotation-schema.json
+└── project-export.json
+
+### Folder Descriptions
+
+- **samples/** – Curated sample annotations with original clinical text excerpts, entities, and annotation rationale  
+- **documents/** – Annotation guidelines, challenges encountered, and future improvement plans  
+- **analysis/** – Quantitative annotation statistics and entity/relation counts  
+- **schema/** – Annotation schemas and Label Studio configuration files  
+
 
 ---
 
@@ -178,7 +186,7 @@ clinical-text-annotation-portfolio/
 
 ---
 
-## 🌍 Work Preferences
+## Work Preferences
 
 - **Location:** Remote (Nigeria 🇳🇬)
 - **Availability:** Immediate
@@ -187,16 +195,15 @@ clinical-text-annotation-portfolio/
 ---
 
 ## Contact
-
 Email: anita.o.aigbo@gmail.com
 LinkedIn: www.linkedin.com/in/anita-aigbomodion
 
 ---
 
-License & Data Use
+## License & Data Use
 This portfolio is for demonstration purposes only.
 
-All medical images used are:
+### All medical images used are:
 Publicly available datasets (e.g., NIH Chest X-ray collections)
 Fully de-identified in accordance with HIPAA standards
 Used strictly for educational and portfolio demonstration
