@@ -136,7 +136,8 @@ Representative annotated examples are included in the repository:
 
 - Cardiovascular: [Acute STEMI](Portfolio/samples/sample_1_stemi.md)
 - Emergency Medicine: [Septic Shock](Portfolio/samples/sample_2_septic_shock.md)
-- [Anaphylaxis](Portfolio/samples/sample_3_anaphylaxis.md)
+- Anaphylaxis: [Anaphylaxis](Portfolio/samples/sample_3_anaphylaxis.md)
+
 
 ---
 
