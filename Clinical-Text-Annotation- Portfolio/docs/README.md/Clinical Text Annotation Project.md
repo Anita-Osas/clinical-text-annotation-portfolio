@@ -237,8 +237,6 @@ If you use this corpus, please cite:
 
 > **Aigbomodion, A. (2025).**  
 > *Clinical Text Annotation Corpus for NER and Relation Extraction.*  
-> [Project / Institution Name].  
-> https://your-link-here
 
 ---
 
@@ -248,10 +246,8 @@ If you use this corpus, please cite:
 Registered Nurse | Healthcare Data Analyst  
 HIPAA-certified | 1+ year clinical experience  
 
-- **Email:** anitaj280@gmail.com  
-- **LinkedIn:** *anita.o.aigbo@gmail.com*  
-- **Portfolio:** *www.linkedin.com/in/anita-aigbomodion*  
-
+- **Email: *anita.o.aigbo@gmail.com*   
+- **LinkedIn: *www.linkedin.com/in/anita-aigbomodion*  
 ---
 
 ## License
@@ -268,3 +264,4 @@ MIT License
 
 **Last Updated:** December 2025  
 **Version:** 1.0
+
