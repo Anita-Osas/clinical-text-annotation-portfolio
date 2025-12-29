@@ -82,24 +82,24 @@ clinical-text-annotation-portfolio/
 - README.md
   
 - samples/
- - sample_1_stemi.md
- - sample_2_septic_shock.md
- - sample_3_anaphylaxis.md
+  - sample_1_stemi.md
+  - sample_2_septic_shock.md
+  - sample_3_anaphylaxis.md
    
 - documents/
- - README.md
- - annotation-guidelines.md
- - challenges-and-decisions.md
- - future-work.md
+  - README.md
+  - annotation-guidelines.md
+  - challenges-and-decisions.md
+  - future-work.md
    
 - analysis/
- - entity-relation-count.md
- - annotation-statistics.xlsx
+  - entity-relation-count.md
+  - annotation-statistics.xlsx
    
 - schema/
- - label-studio-config.xml
- - annotation-schema.json
- - project-export.json
+  - label-studio-config.xml
+  - annotation-schema.json
+  - project-export.json
 
 
 ---
@@ -269,5 +269,6 @@ MIT License
 
 **Last Updated:** December 2025  
 **Version:** 1.0
+
 
 
