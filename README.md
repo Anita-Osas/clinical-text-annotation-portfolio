@@ -130,7 +130,7 @@ Annotations followed a **reproducible and documented workflow**.
 
 ---
 
-## 📸 Sample Annotations
+## Sample Annotations
 
 Representative annotated examples are included in the repository:
 
@@ -143,29 +143,27 @@ Representative annotated examples are included in the repository:
 
 ## Repository Structure
 
-clinical-text-annotation-portfolio/
-│
-├── README.md
-│
-├── samples/
-│ ├── sample_1_stemi.md
-│ ├── sample_2_septic_shock.md
-│ └── sample_3_anaphylaxis.md
-│
-├── documents/
-│ ├── README.md
-│ ├── annotation-guidelines.md
-│ ├── challenges-and-decisions.md
-│ └── future-work.md
-│
-├── analysis/
-│ ├── entity-relation-count.md
-│ └── annotation-statistics.xlsx
-│
-└── schema/
-├── label-studio-config.xml
-├── annotation-schema.json
-└── project-export.json
+ clinical-text-annotation-portfolio/
+- README.md
+- samples/
+   - sample_1_stemi.md
+   - sample_2_septic_shock.md
+   - sample_3_anaphylaxis.md
+
+- documents/
+   - README.md
+   - annotation-guidelines.md
+   -  challenges-and-decisions.md
+   -  future-work.md
+
+ - analysis/
+   - entity-relation-count.md
+   - annotation-statistics.xlsx
+
+ - schema/
+   - label-studio-config.xml
+   - annotation-schema.json
+   - project-export.json
 
 ### Folder Descriptions
 
@@ -195,18 +193,18 @@ clinical-text-annotation-portfolio/
 ---
 
 ## Contact
-Email: anita.o.aigbo@gmail.com
-LinkedIn: www.linkedin.com/in/anita-aigbomodion
+- Email: anita.o.aigbo@gmail.com
+- LinkedIn: www.linkedin.com/in/anita-aigbomodion
 
 ---
 
 ## License & Data Use
-This portfolio is for demonstration purposes only.
+- This portfolio is for demonstration purposes only.
 
 ### All medical images used are:
-Publicly available datasets (e.g., NIH Chest X-ray collections)
-Fully de-identified in accordance with HIPAA standards
-Used strictly for educational and portfolio demonstration
+- Publicly available datasets (e.g., NIH Chest X-ray collections)
+- Fully de-identified in accordance with HIPAA standards
+- Used strictly for educational and portfolio demonstration
 
 ---
 
