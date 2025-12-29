@@ -1,286 +1,270 @@
-### **Clinical Text Annotation Project**
+# Clinical Text Annotation Project
 
-### 
+Annotated corpus for **Named Entity Recognition (NER)** and **Relation Extraction** in clinical notes.
 
-Annotated corpus for Named Entity Recognition and Relation Extraction in clinical notes
+---
 
+## Project Overview
 
+This project presents a **manually annotated clinical text corpus** designed to support the development and evaluation of **clinical NLP systems**.  
+The dataset focuses on **entity recognition**, **relation extraction**, and **clinical reasoning** tasks using real-world clinical note excerpts.
 
-###### **Project Overview**
+The corpus includes **6 clinical notes** spanning **cardiovascular**, **pediatric**, and **emergency medicine** domains.
 
-This project presents a manually annotated corpus of 6 clinical notes covering cardiovascular, pediatric, and emergency medicine cases. The corpus supports development of clinical NLP systems for entity recognition, relation extraction, and clinical reasoning tasks.
+---
 
+## Quick Stats
 
+- **Clinical Notes:** 6  
+- **Specialties Covered:** Cardiovascular, Pediatric, Emergency Medicine  
+- **Entity Types:** 18  
+- **Relation Types:** 4  
+- **Modifiers:** 4  
+- **Annotation Approach:** Conservative  
+  - Explicit text only  
+  - No clinical inference  
 
-###### **Quick Stats**
+---
 
-Notes: 6 (diverse specialties and note types)
+## Annotation Schema
 
-Entity Types: 18
+### Entity Types (18)
 
-Relation Types: 4
+- PATIENT_DEMOGRAPHICS  
+- DIAGNOSIS  
+- SYMPTOM  
+- SIGN  
+- VITAL_SIGN  
+- DIAGNOSTIC_TEST  
+- TEST_RESULT  
+- LAB_VALUE  
+- MEDICATION  
+- DOSAGE  
+- ROUTE  
+- RATE  
+- FREQUENCY  
+- PROCEDURE  
+- ANATOMY  
+- EXPOSURE  
+- TEMPORAL  
+- PROCEDURE_RESULT  
 
-Modifiers: 4
+---
 
-Annotation Approach: Conservative (explicit text only, no medical inference)
+### Relation Types (4)
 
+- **DIAGNOSIS:** Finding/Test → Disease  
+- **TREATS:** Treatment → Disease  
+- **CAUSES:** Factor → Disease  
+- **INDICATION:** Procedure/Medication → Reason  
 
+---
 
-###### **Schema**
+### Modifiers (4)
 
-Entity Types (18)
+**Severity**
+- Mild, Moderate, Severe, Critical
 
-PATIENT\_DEMOGRAPHICS, DIAGNOSIS, SYMPTOM, SIGN, VITAL\_SIGN, DIAGNOSTIC\_TEST, TEST\_RESULT, LAB\_VALUE, MEDICATION, DOSAGE, ROUTE,RATE, FREQUENCY, PROCEDURE, ANATOMY, EXPOSURE, TEMPORAL, PROCEDURE\_RESULT
+**Clinical Course**
+- Improving, Worsening, Stable, Progressive, Resolved, Persistent
 
+**Disease Status**
+- Acute, Chronic, Active, Inactive, Resolved, Recurrent, Remote
 
+**Negation**
+- Present (entity exists)  
+- Absent (entity does not exist)
 
-###### **Relation Types (4)**
-
-DIAGNOSIS: Finding/test → Disease
-
-TREATS: Treatment → Disease
-
-CAUSES: Factor → Disease
-
-INDICATION: Procedure/Med → Reason
-
-
-
-###### **Modifiers (4)**
-
-Severity: Mild, Moderate, Severe, Critical
-
-Clinical Course: Improving, Worsening, Stable, Progressive, Resolved, Persistent
-
-Disease Status: Acute, Chronic, Active, Inactive, Resolved, Recurrent, Remote
-
-Negation: Present (entity exists), Absent (entity doesn't exist)
-
-
-
-###### **Files**
-
+---
+## Repository Structure
 clinical-text-annotation-portfolio/
+- README.md
+- samples/
+ - sample_1_stemi.md
+ - sample_2_septic_shock.md
+ - sample_3_anaphylaxis.md
+- documents/
+ - README.md
+ - annotation-guidelines.md
+ - challenges-and-decisions.md
+ - future-work.md
+- analysis/
+ - entity-relation-count.md
+ - annotation-statistics.xlsx
+- schema/
+ - label-studio-config.xml
+ - annotation-schema.json
+ - project-export.json
 
-│
 
-annotated\_notes/
+---
 
-├── Readme
+## Sample Annotations
 
-├── Project1
+- **Cardiovascular Note:**  
+  [Acute STEMI — Anterior Wall](samples/sample_1_stemi.md)
 
-schema/
+- **Emergency Medicine Note:**  
+  [Septic Shock](samples/sample_2_septic_shock.md)
 
-├── schema.json
+- **Emergency Medicine Note:**  
+  [Anaphylaxis](samples/sample_3_anaphylaxis.md)
 
-├── label\_studio\_config.xml
+---
 
-docs/
+## Key Annotation Principles
 
-├── README.md
+- **Text-based only:**  
+  Annotate only what is explicitly stated in the text.
 
-├── annotation\_guidelines.pdf
+- **Conservative relations:**  
+  Relations are annotated **only when explicitly stated**.
 
-├── challenges\_and\_decisions.pdf
+- **Minimal meaningful spans:**  
+  Capture complete clinical phrases while excluding linking words.
 
-├── future\_work.md
+- **Strict negation handling:**  
+  The entity is annotated and marked as **Absent** when negated.
 
-analysis/
+---
 
-├── statistics.xlsx
+## Annotation Examples
 
-├── entity\_relation\_counts.md
+### Entity Example
 
-samples/
+**Text:**  
+> “Severe symptomatic aortic stenosis”
 
-├── sample\_1\_stemi.md
+**Annotation:**  
+- Entity: *Severe symptomatic aortic stenosis*  
+- Type: DIAGNOSIS  
+- Severity: Severe
 
-├── sample\_2\_septic\_shock.md
+---
 
-└── sample\_3\_anaphylaxis.md
+### Relation Example
 
+**Text:**  
+> “Echocardiogram showed severe aortic stenosis”
 
+**Entities:**  
+- *Echocardiogram* — DIAGNOSTIC_TEST  
+- *Severe aortic stenosis* — DIAGNOSIS  
 
+**Relation:**  
+Echocardiogram ──DIAGNOSIS──> Severe aortic stenosis
 
 
-###### **Key Annotation Principles**
 
-Text-based only: Annotate what's explicitly stated, not medical knowledge
+---
 
-Conservative relations: Only annotate with explicit relational language
+### Negation Example
 
-Complete phrases: Include minimal meaningful units, exclude linking words
+**Text:**  
+> “No focal consolidation”
 
-Strict negation: Highlight entity being negated, mark as Absent
+**Annotation:**  
+- Entity: *Focal consolidation*  
+- Type: TEST_RESULT  
+- Negation: Absent
 
+---
 
+## Usage
 
-###### **Example Annotations**
+### Clinical NLP Research
+- Train and evaluate NER and relation extraction models
+- Benchmark against i2b2 and n2c2 datasets
+- Analyze entity and relation distributions
 
-Entity Example
+### Annotation Tool Development
+- Use `label-studio-config.xml` as a template
+- Apply annotation guidelines to new datasets
+- Extend schema for domain-specific use cases
 
-Text: "Severe symptomatic aortic stenosis"
+### Clinical Application Development
+- Extract structured data from free-text notes
+- Support clinical decision support systems
+- Enable quality measurement and analytics pipelines
 
-Entity: \[Severe symptomatic aortic stenosis]
+---
 
-Type: DIAGNOSIS
+## Annotation Tool
 
-Severity: Severe
+Annotations were performed using **Label Studio** with a custom XML configuration.
 
+**Features**
+- 18 entity labels  
+- 4 relation types with directional arrows  
+- 4 modifier dropdowns  
+- Optimized UI for reduced annotation friction  
 
+**Challenges Addressed**
+- Differentiating Clinical Course vs Disease Status  
+- Enforcing strict relation annotation rules  
+- Handling negation logic accurately  
+- Excluding discharge warning signs  
 
-###### **Relation Example**
+See **documents/challenges-and-decisions.md** for details.
 
-Text: "Echocardiogram showed severe aortic stenosis"
+---
 
-Entities: \[Echocardiogram] (DIAGNOSTIC\_TEST), \[Severe aortic stenosis] (DIAGNOSIS)
+## Limitations
 
-Relation: Echocardiogram ──DIAGNOSIS──> Severe aortic stenosis
+- Small corpus (6 notes) — suitable for pilot studies
+- Single annotator — no inter-annotator agreement
+- Conservative relations — implicit relations intentionally excluded
+- Limited specialties
+- English-only dataset
 
+---
 
+## Future Work
 
-###### **Negation Example**
+- Expand corpus to 20–30 notes across 10+ specialties
+- Introduce multi-annotator validation
+- Train baseline NER and relation extraction models
+- Add temporal relations and coreference resolution
+- Develop clinical decision support applications
 
-Text: "No focal consolidation"
+See **documents/future-work.md** for details.
 
-Entity: \[Focal consolidation]
+---
 
-Type: TEST\_RESULT
-
-Negation: Absent
-
-
-
-###### **Usage**
-
-For NER/Relation Extraction Research
-
-Use as training/test corpus for clinical NLP models
-
-Compare with i2b2, n2c2 benchmarks
-
-Evaluate on entity recognition and relation extraction
-
-For Annotation Tool Development
-
-Use label\_studio\_config.xml as template
-
-Apply guidelines to new clinical notes
-
-Extend schema for specific domains
-
-For Clinical Application Development
-
-Extract structured data from notes
-
-Build clinical decision support features
-
-Support quality measurement initiatives
-
-
-
-###### **Annotation Tool**
-
-Label Studio with custom XML configuration (included)
-
-Features:
-
-18 entity type labels
-
-4 relation types with arrow creation
-
-4 context-dependent modifier dropdowns
-
-Smart defaults to minimize clicks
-
-Challenges Addressed
-
-Distinguishing Clinical Course vs. Disease Status
-
-Relation annotation strictness (explicit only)
-
-Negation logic (Present = exists, Absent = doesn't exist)
-
-Discharge instructions handling (skip warning signs)
-
-See challenges\_and\_decisions.pdf for details.
-
-
-
-###### **Limitations**
-
-Small corpus: 6 notes (suitable for pilot, needs expansion)
-
-Single annotator: No inter-annotator agreement calculated
-
-Conservative relations: Some valid implicit relations not annotated (by design)
-
-Limited specialties: Cardiovascular, pediatric, emergency only
-
-English only: No multilingual support
-
-
-
-
-
-###### **Future Work**
-
-Expand to 20-30 notes across 10+ specialties
-
-Multi-annotator validation
-
-Train baseline NER and relation extraction models
-
-Add temporal relations and co-reference resolution
-
-Develop clinical decision support applications
-
-See future\_work.pdf for details.
-
-
-
-###### **Citation**
+## Citation
 
 If you use this corpus, please cite:
 
-Anita Aigbomodion (2025). Clinical Text Annotation Corpus for NER and Relation Extraction.
+> **Aigbomodion, A. (2025).**  
+> *Clinical Text Annotation Corpus for NER and Relation Extraction.*  
+> [Project / Institution Name].  
+> https://your-link-here
 
-\[Institution/Project Name]. https://\[your-link]
+---
 
+## Contact
 
+**Anita Aigbomodion, RN, BSN**  
+Registered Nurse | Healthcare Data Analyst  
+HIPAA-certified | 1+ year clinical experience  
 
-###### **Contact**
+- **Email:** anitaj280@gmail.com  
+- **LinkedIn:** *anita.o.aigbo@gmail.com*  
+- **Portfolio:** *www.linkedin.com/in/anita-aigbomodion*  
 
-Anita Aigbomodion, RN, BSN
+---
 
-Registered nurse with expertise in healthcare data analytics
+## License
 
-HIPAA-certified with 1 year of clinical experience
+MIT License
 
+---
 
+## Acknowledgments
 
-Email: anitaj280@gmail.com
+- Label Studio — annotation platform
 
-LinkedIn:
+---
 
-Portfolio:
-
-
-
-###### **License**
-
-MIT
-
-
-
-###### **Acknowledgments**
-
-Label Studio for annotation platform
-
-
-
-Last Updated: December 2025
-
-Version: 1.0
-
+**Last Updated:** December 2025  
+**Version:** 1.0
