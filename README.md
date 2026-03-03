@@ -176,6 +176,16 @@ Representative annotated examples are included in the repository:
 ---
 
 ## Background
+## Why a Registered Nurse?
+
+Most clinical text annotators are trained in linguistics or data science, not medicine. As a licensed Registered Nurse with 3,500+ hours of supervised clinical training, I bring something fundamentally different:
+- I recognise when a diagnosis label is clinically incorrect, not just linguistically misplaced
+- I understand the difference between a documented symptom and a suspected diagnosis
+- I know when negation matters clinically — "no chest pain" in a cardiac note carries different weight than "no rash"
+- I can identify temporal relationships between events because I have documented real patient timelines
+- I understand medication routes, dosages, and clinical significance, not just as text patterns but as clinical facts
+
+This means my annotations are not just technically consistent, they are **clinically meaningful**
 
 - **Bachelor of Science in Nursing (BSc)**
 - **Registered Nurse (RN)** – Active License  
@@ -205,18 +215,20 @@ Representative annotated examples are included in the repository:
 - Publicly available datasets (e.g., NIH Chest X-ray collections)
 - Fully de-identified in accordance with HIPAA standards
 - Used strictly for educational and portfolio demonstration
+- Annotations follow de-identification standards compatible with HIPAA, GDPR, and regional health data frameworks (including UAE NABIDH-aligned data handling principles)
 
 ---
 
 ##  Open to Opportunities
 
 Seeking roles in:
-- Clinical Text Annotation
-- Medical Entity Recognition
-- Healthcare AI Training Data
+- Clinical Text Annotator
+- Healthcare NLP QA Analyst
+- Medical AI Evaluator
+- LLM Healthcare Data Specialist
 
 ---
 
  *This portfolio reflects clinically informed, high-quality annotation suitable for healthcare NLP model development.*
 
-*Last Updated: December 2025*
+*Last Updated: March 2026*
