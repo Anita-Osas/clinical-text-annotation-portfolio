@@ -11,7 +11,12 @@ This portfolio demonstrates my ability to apply **clinical reasoning**, **medica
 
 All clinical notes were sourced from **publicly available, fully de-identified datasets** and annotated using standardized clinical NLP workflows.
 
-**Target Roles:** Clinical Text Annotator 
+**Target Roles:** 
+- Clinical Text Annotator
+- Healthcare NLP QA Analyst
+- Medical AI Evaluator
+- LLM Healthcare Data Specialist
+
 **Focus Areas:** Clinical NER, modifiers, relation extraction  
 **Availability:** Immediate | Remote
 
@@ -98,7 +103,8 @@ Values: Present (entity EXISTS), Absent (entity DOES NOT exist)
 
 ## Tools & Methodology
 
-- **Annotation Platform:** Label Studio  
+- **Annotation Platform:** Label Studio
+- **Custom XML configuration schemas** Written to define annotation labels for Named Entity Recognition (NER), relation extraction, clinical modifiers (Severity, Clinical Course, Disease Status), negation, temporal markers, and assertion rules within Label Studio
 - **Annotation Schema:** Custom ontology informed by **UMLS / SNOMED CT**  
 - **Guideline Reference:** i2b2 Clinical NLP standards  
 - **Quality Assurance:** Systematic self-review and consistency checks  
@@ -222,10 +228,16 @@ This means my annotations are not just technically consistent, they are **clinic
 ##  Open to Opportunities
 
 Seeking roles in:
-- Clinical Text Annotator
-- Healthcare NLP QA Analyst
-- Medical AI Evaluator
-- LLM Healthcare Data Specialist
+- Medical Imaging Annotator
+- Clinical Data Annotator
+- Radiology AI Evaluator
+- Healthcare AI QA Analyst
+- AI Training Data Specialist
+- LLM Healthcare Safety Reviewer
+
+**Geographic Availability:** Open to remote opportunities globally including US, EU, and UAE-based healthcare AI companies.  
+**Compliance Familiarity:** HIPAA (certified), GDPR-aware, NABIDH-aligned data handling principles.  
+**Immediate availability for contract, part-time, or full-time remote engagement.**
 
 ---
 
